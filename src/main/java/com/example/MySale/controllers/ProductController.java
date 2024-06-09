@@ -1,6 +1,7 @@
 package com.example.MySale.controllers;
 
 import com.example.MySale.models.Product;
+import com.example.MySale.models.User;
 import com.example.MySale.servise.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -44,5 +45,12 @@ public class ProductController {
     public String deleteProduct(@PathVariable Long id){
         productService.deleteProduct(id);
         return "redirect:/";
+    }
+    @GetMapping("/my/products")
+    public String userProducts(Principal principal, Model model) {
+        User user = productService.getUserByPrincipal(principal);
+        model.addAttribute("user", user);
+        model.addAttribute("products", user.getProducts());
+        return "my-products";
     }
 }
