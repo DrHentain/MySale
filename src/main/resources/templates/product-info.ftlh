@@ -4,16 +4,15 @@
     <title>MySale</title>
 </head>
 <body>
-<h1>MySale!</h1>
+<h1>MySale!</h1><hr>
 <h4>Подробная информация о товаре</h4>
 <#list images as img>
     <img src="/images/${img.id}" height = "60px"/><br><br>
 </#list>
 <b>Название товара:</b>${products.title}<br>
 <b>Описание товара:</b>${products.description}<br>
-<b>Цена:</b>${products.price}<br>
-<b>Город:</b>${products.city}<br>
-<b>Автор:</b>${products.user.name}<br>
-<b>Номер телефона: </b>${products.user.phoneNumber}<br>
+<b>Цена: </b>${products.price}<br>
+<b>Город: </b>${products.city}<br>
+<b>Автор: </b> <a href="/user/{product.user.id}">${product.user.name}</a><br>
 </body>
 </html>
