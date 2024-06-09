@@ -31,8 +31,8 @@ public class UserController {
         }
         return "redirect:/login";
     }
-    @GetMapping("/user/{id}")
-    public String userInfo(@PathVariable("{id}") User user, Model model){
+    @GetMapping("/user/{user}")
+    public String userInfo(@PathVariable("{user}") User user, Model model){
         model.addAttribute("user", user);
         model.addAttribute("products", user.getProducts());
         return "user-info";
